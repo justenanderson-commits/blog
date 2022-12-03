@@ -1,11 +1,11 @@
 import React from 'react'
 import './Card.css'
 
-const Card = () => {
+const Card = ({ title, description, id }) => {
   return (
     <div className="card--idea">
-      <h3>Card title</h3>
-      <p>Card description</p>
+      <h3>{title}</h3>
+      <p>{ description }</p>
       <button>Delete</button>
     </div>
   )

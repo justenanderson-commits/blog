@@ -11,13 +11,11 @@ class Form extends React.Component {
 
   render() {
     return (
-      <div>
         <form className="container--input-form">
-          <input type="text"></input>
-          <input type="text"></input>
+          <input type="text" placeholder=" title" name="title" value={this.state.title}></input>
+          <input type="text" placeholder='  description' name='title' value={this.state.description}></input>
           <button>Submit</button>
         </form>
-      </div>
     )
   }
 }
