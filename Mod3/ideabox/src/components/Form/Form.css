@@ -1,0 +1,6 @@
+.container--input-form {
+  border: 2px solid rgb(183, 180, 180);
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}

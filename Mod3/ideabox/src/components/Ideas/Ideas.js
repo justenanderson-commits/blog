@@ -4,8 +4,9 @@ import './Ideas.css'
 
 const Ideas = () => {
   return (
-    <div>
-      <h2 className="container--ideas">Ideas content</h2>
+    <div className="container--ideas">
+      <Card />
+      <Card />
       <Card />
     </div>
   )

@@ -2,6 +2,7 @@ import React from 'react'
 import Form from '../Form/Form'
 import Ideas from '../Ideas/Ideas'
 import './App.css'
+import brain from '../../../src/images.png'
 
 class App extends React.Component {
   constructor() {
@@ -13,11 +14,12 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <main>
+        <img src={brain} className="App-logo"></img>
         <h1>Idea Box</h1>
         <Form />
         <Ideas />
-      </div>
+      </main>
 
     )
   }

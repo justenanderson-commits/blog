@@ -12,10 +12,11 @@ class Form extends React.Component {
   render() {
     return (
       <div>
-        <h2>Form content</h2>
-        <input type="text"></input>
-        <input type="text"></input>
-        <button>Submit</button>
+        <form className="container--input-form">
+          <input type="text"></input>
+          <input type="text"></input>
+          <button>Submit</button>
+        </form>
       </div>
     )
   }
