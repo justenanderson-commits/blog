@@ -4,6 +4,8 @@ import Ideas from '../Ideas/Ideas'
 import './App.css'
 import brain from '../../../src/images.png'
 
+// NEXT STEP: Fetch ideas data from an API call with proper error handling. //
+
 class App extends React.Component {
   constructor() {
     super()
@@ -22,7 +24,7 @@ class App extends React.Component {
 
   deleteIdea = (id) => {
     console.log('Delete Event Id: ', id)
-    const filteredIdeas = this.state.ideas.filter(idea => idea.id != id)
+    const filteredIdeas = this.state.ideas.filter(idea => idea.id !== id)
     
     this.setState({ ideas: filteredIdeas })
   }
@@ -31,7 +33,7 @@ class App extends React.Component {
     return (
       <main>
         <div className="container--image">
-          <img src={brain} className="App-logo"></img>
+          <img alt='Spinning brain'src={brain} className="App-logo"></img>
         </div>
         <h1>Idea Box</h1>
         <Form addIdea={this.addIdea}/>
