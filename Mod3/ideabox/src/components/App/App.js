@@ -16,7 +16,9 @@ class App extends React.Component {
     }
   }
 
-
+  addIdea = newIdea => {
+    this.setState({ ideas: [...this.state.ideas, newIdea]})
+  }
 
   render() {
     return (
@@ -25,7 +27,7 @@ class App extends React.Component {
           <img src={brain} className="App-logo"></img>
         </div>
         <h1>Idea Box</h1>
-        <Form />
+        <Form addIdea={this.addIdea}/>
         {!this.state.ideas.length && <h2>Add a new idea!</h2>}
         <Ideas props={this.state.ideas} />
       </main>

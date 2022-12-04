@@ -3,7 +3,7 @@ import Card from '../Cards/Card'
 import './Ideas.css'
 
 const Ideas = ({ props }) => {
-  console.log('Props :', props)
+
   const ideaCards = props.map(idea => {
     return (
       <Card 
