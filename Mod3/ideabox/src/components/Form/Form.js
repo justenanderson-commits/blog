@@ -44,7 +44,7 @@ class Form extends React.Component {
           
           <input 
           type="text" 
-          placeholder='  description' 
+          placeholder='  Description' 
           name='description' 
           value={this.state.description}
           onChange={event => this.handleChange(event)}

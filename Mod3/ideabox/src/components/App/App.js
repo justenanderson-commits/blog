@@ -20,6 +20,13 @@ class App extends React.Component {
     this.setState({ ideas: [...this.state.ideas, newIdea]})
   }
 
+  deleteIdea = (id) => {
+    console.log('Delete Event Id: ', id)
+    const filteredIdeas = this.state.ideas.filter(idea => idea.id != id)
+    
+    this.setState({ ideas: filteredIdeas })
+  }
+
   render() {
     return (
       <main>
@@ -29,7 +36,7 @@ class App extends React.Component {
         <h1>Idea Box</h1>
         <Form addIdea={this.addIdea}/>
         {!this.state.ideas.length && <h2>Add a new idea!</h2>}
-        <Ideas props={this.state.ideas} />
+        <Ideas props={this.state.ideas} deleteIdea={this.deleteIdea}/>
       </main>
 
     )
