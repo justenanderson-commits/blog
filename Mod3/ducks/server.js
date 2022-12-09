@@ -1,5 +1,5 @@
 // CURRENT BLOCKER:
-  // Changing the endpoint does provide the correct response. It shows an error message instead of showing the 'All the Ducks' message when I visit a different point.
+  // Make the post work. Be able to pull up data in the browser
 
 const express = require('express');
 const app = express();
