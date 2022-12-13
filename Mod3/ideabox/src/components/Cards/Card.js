@@ -5,10 +5,10 @@ const Card = ({ title, description, id, deleteIdea }) => {
   return (
     <div className="card--idea">
       <h3>{title}</h3>
-      <p>{ description }</p>
-      <button onClick={ () => deleteIdea(id) }>Delete</button>
+      <p>{description}</p>
+      <button onClick={ () => deleteIdea(id)}>🗑</button>
     </div>
   )
 }
-
+ 
 export default Card

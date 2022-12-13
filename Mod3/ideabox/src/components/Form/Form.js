@@ -11,7 +11,6 @@ class Form extends React.Component {
   }
 
   handleChange = event => {
-    /* looks like this needs to be fixed to properly update state */
     this.setState({ [event.target.name]: event.target.value })
   }
 
@@ -22,36 +21,37 @@ class Form extends React.Component {
       id: Date.now(),
       ...this.state
     }
-    this.props.addIdea(newIdea)
-    this.clearInputs()
+
+  this.props.addIdea(newIdea)
+  this.clearInputs()
   }
 
   clearInputs = () => {
-    this.setState({ title: '', description: '' })
+    this.setState({ title: '', description: ''})
   }
 
   render() {
     return (
-        <form className="container--input-form">
-          <input 
-            type="text" 
-            placeholder=" Title"  
-            name="title" 
-            value={this.state.title}
-            onChange={event => this.handleChange(event)}
-            
-          />
-          
-          <input 
-          type="text" 
-          placeholder='  Description' 
-          name='description' 
-          value={this.state.description}
-          onChange={event => this.handleChange(event)}
-          />
-          
-          <button onClick={ event => this.submitIdea(event) }>Submit</button>
-        </form>
+      <form>
+       <h2>Add a new idea!</h2>
+       <input
+        type="text"
+        name="title"
+        placeholder="  Title"
+        value={this.state.title}
+        onChange={event => this.handleChange(event)}
+       />
+
+       <input
+        type="text"
+        name="description"
+        placeholder="  Description"
+        value={this.state.description}
+        onChange={event => this.handleChange(event)}
+       />
+
+       <button onClick={event => this.submitIdea(event)}>Submit</button>
+      </form>
     )
   }
 }

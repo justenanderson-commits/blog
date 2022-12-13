@@ -1,46 +1,57 @@
 import React from 'react'
+import './App.css'
 import Form from '../Form/Form'
 import Ideas from '../Ideas/Ideas'
-import './App.css'
-import brain from '../../../src/images.png'
-
-// NEXT STEP: Fetch ideas data from an API call with proper error handling. //
 
 class App extends React.Component {
   constructor() {
     super()
     this.state = {
-      ideas: [
-        { id: 1, title: 'Prank Travis', description: 'Stick googly eyes on all his stuff' },
-        { id: 2, title: 'Make a secret password app', description: 'So you and your rideshare driver can both know neither one of you is lying' },
-        { id: 3, title: 'Learn a martial art', description: 'To exact vengeance upon my enemies' }
-      ]
+      ideas: []
     }
   }
 
-  addIdea = newIdea => {
-    this.setState({ ideas: [...this.state.ideas, newIdea]})
+  addIdea = (newIdea) => {
+    this.setState({ideas: [...this.state.ideas, newIdea] })
   }
 
-  deleteIdea = (id) => {
-    console.log('Delete Event Id: ', id)
+  deleteIdea = id => {
+    console.log('Deleted idea id: ', id)
     const filteredIdeas = this.state.ideas.filter(idea => idea.id !== id)
-    
-    this.setState({ ideas: filteredIdeas })
+    this.setState({ ideas: filteredIdeas})
+  }
+
+  fetchIdeas = () => {
+    fetch('http://localhost:3001/api/v1/ideas')
+      .then(response => {
+          if (!response.ok) {
+          throw new Error(response.statusText)
+        }
+        return response.json()
+      })
+      .then(data => {
+        console.log("data: ", data)
+        this.setState({ ideas: data})
+    })
+            
+      .catch(error => {
+        console.log("Error message: ", error.message)
+        this.state.error = error.message
+      })
+  }
+
+  componentDidMount = () => {
+    this.fetchIdeas() 
   }
 
   render() {
-    return (
-      <main>
-        <div className="container--image">
-          <img alt='Spinning brain'src={brain} className="App-logo"></img>
-        </div>
-        <h1>Idea Box</h1>
-        <Form addIdea={this.addIdea}/>
-        {!this.state.ideas.length && <h2>Add a new idea!</h2>}
-        <Ideas props={this.state.ideas} deleteIdea={this.deleteIdea}/>
+    return(
+      <main className="app">
+        <h1>Idea Box Extraordinaire!</h1>
+        <Form addIdea={this.addIdea} />
+        {!this.state.ideas.length && <h3>Add some fresh ideas!</h3>}
+        <Ideas ideas={this.state.ideas} deleteIdea={this.deleteIdea} />
       </main>
-
     )
   }
 }
