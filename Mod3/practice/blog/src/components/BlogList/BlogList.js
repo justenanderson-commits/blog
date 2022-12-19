@@ -2,7 +2,7 @@ import React from 'react'
 
 
 const BlogList = ({ blog, handleDelete }) => {
-  console.log("Blog: ", blog )
+  // console.log("Blog: ", blog )
 
   return (
     <div className="blog-list">
