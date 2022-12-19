@@ -20,5 +20,5 @@ function App() {
 export default App;
 
 // Video Series Progress:
-// Vid 11
+// Vid 12
 // https://www.youtube.com/watch?v=4pO-HcG2igk
